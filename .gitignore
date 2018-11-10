@@ -2,7 +2,8 @@
 ### Python template
 # Program specifics
 userFingerprints.p
-*.xml
+# Pycharm specifics
+/.idea
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

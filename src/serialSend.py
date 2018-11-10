@@ -1,8 +1,6 @@
 import serial
 
 
-def send(port):
+def send(port, data):
     s = serial.Serial(port)
-
-    def sendData(self, data):
-        s.write(data)
+    s.write(data)
