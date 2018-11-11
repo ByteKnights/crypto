@@ -1,6 +1,5 @@
 import gnupg
 import users
-
 gpg = gnupg.GPG(gnupghome='/home/nova/.gnupg')
 
 
@@ -19,7 +18,6 @@ def findKey(user):
         if key["fingerprint"] in users.userFingerprints[user]:
             return key['keyid']
 
-
 def encrypt(plainText, user):
     if len(plainText) <= 70:
         cipherText = gpg.encrypt(plainText, findKey(user))
@@ -28,8 +26,14 @@ def encrypt(plainText, user):
     else:
         return "plaintext to long"
 
+
+def importKey(pubKey, username):
+    gpg.import_keys(pubKey)
+    addKey(gpg.list_keys()[-1]['fingerprint'], username)
+
+
 def decrypt(cipherText):
     return gpg.decrypt(cipherText)
-
-cipher = encrypt("Hello World Hello", "testUser1")
-print(decrypt(cipher))
+# cipher = encrypt("Hello World Hello", "testUser1")
+# print(cipher)
+# print(decrypt(cipher))
