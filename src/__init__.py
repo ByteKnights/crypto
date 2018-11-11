@@ -1,2 +1,2 @@
-__all__ = ['serialSend', 'pgp', 'users']
+__all__ = ['serialSend', 'pgp', 'users', 'findPort']
 
